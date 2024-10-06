@@ -10,10 +10,20 @@ export const fetch_start_agent = async (
     body: JSON.stringify({ room_url: roomUrl }),
   });
 
-  const data = await req.json();
+  // Log the response for debugging
+  console.log("Response status:", req.status);
+  console.log("Response headers:", req.headers);
 
-  if (!req.ok) {
-    return { error: true, detail: data.detail };
+  try {
+    const data = await req.json();
+    console.log("Response data:", data);
+
+    if (!req.ok) {
+      return { error: true, detail: data.detail };
+    }
+    return data;
+  } catch (err) {
+    console.error("Failed to parse response:", err);
+    return { error: true, detail: "Failed to parse response" };
   }
-  return data;
 };
