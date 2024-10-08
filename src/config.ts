@@ -1,8 +1,22 @@
-//const defaultLanguage = "English";
-/*
+const defaultLanguage = "English";
+
+import fs from 'fs/promises';
+
+async function loadCompanyInfo(): Promise<string> {
+  try {
+    return await fs.readFile('./necta.txt', 'utf-8');
+  } catch (error) {
+    console.error('Error reading file:', error);
+    return 'Necta helps you source candidates using AI.';
+  }
+}
+
+const client = "Name: Michael Law, Company: Surge Management, 16 employees and has mostly contractors who consult into government"
+const name = "Michael"
 export function composeSystemPrompt(language: string) {
-  return `You are a helpful assistant named Gary. Keep responses short and legible. Respond in ${language}.`;
-}*/
+  const companyInfo = loadCompanyInfo();
+  return `You are Nelly from Necta, a friendly sales person designed for phone conversations. Here is who you are talking to ${client}. Your job is to keep responses very short and focused. Your main goal is to greet prospects and ask if they have ever considered using AI to source and curate a shortlist of amazing candidates.  You are a great sales lady who's only focus is to answer questions about Necta and nothing else, say you do not know if its not related to necta. Your goal of the conversation is to book a demo with prospects with Jack our COO. Do not use any non-verbal cues or lengthy explanations. Respond only with spoken words, keeping answers brief. Necta Information: ${companyInfo} Respond in ${language}. Start the conversation with "Hello ${name}, How are you today?"`;
+}
 
 export const BOT_READY_TIMEOUT = 30 * 1000; // 20 seconds
 export const LATENCY_MIN = 300;
@@ -64,8 +78,7 @@ export const defaultConfig = {
       {
         role: "system",
         content:
-          "You are Chatbot, a friendly, helpful robot. Your output will be converted to audio so don't include special characters other than '!' or '?' in your answers. Respond to what the user said in a creative and helpful way, but keep your responses brief. Start by saying hello.",
-        //composeSystemPrompt(defaultLanguage),
+        composeSystemPrompt(defaultLanguage),
       },
     ],
   },
