@@ -7,7 +7,7 @@ import {
 } from "realtime-ai-react";
 
 import Session from "./components/Session";
-import { Configure } from "./components/Setup";
+// import { Configure } from "./components/Setup";
 import { Alert } from "./components/ui/alert";
 import { Button } from "./components/ui/button";
 import * as Card from "./components/ui/card";
@@ -127,10 +127,10 @@ export default function App() {
           <Ear className="size-7 md:size-5 text-primary-400" />
           Works best in a quiet environment with a good internet.
         </div>
-        <Configure
+        {/* <Configure
           startAudioOff={startAudioOff}
           handleStartAudioOff={() => setStartAudioOff(!startAudioOff)}
-        />
+        /> */}
       </Card.CardContent>
       <Card.CardFooter>
         <Button

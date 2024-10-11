@@ -5,7 +5,7 @@ import { TransportState, VoiceEvent } from "realtime-ai";
 import { useVoiceClient, useVoiceClientEvent } from "realtime-ai-react";
 
 import StatsAggregator from "../../utils/stats_aggregator";
-import Configuration from "../Configuration";
+// import Configuration from "../Configuration";
 import Stats from "../Stats";
 import { Button } from "../ui/button";
 import * as Card from "../ui/card";
@@ -114,7 +114,7 @@ export const Session = React.memo(
               <Card.CardTitle>Configuration</Card.CardTitle>
             </Card.CardHeader>
             <Card.CardContent>
-              <Configuration showAllOptions={true} />
+              {/* <Configuration showAllOptions={true} /> */}
             </Card.CardContent>
             <Card.CardFooter>
               <Button onClick={() => setShowDevices(false)}>Close</Button>
