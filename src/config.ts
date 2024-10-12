@@ -77,17 +77,12 @@ export const llmModels: LLMModel[] = [
 ];
 
 export const defaultConfig = {
-  llm: {
-    model: llmModels[0].id,
-    messages: [
-      {
-        role: "system",
-        content:
-        composeSystemPrompt(defaultLanguage),
-      },
-    ],
-  },
-  tts: {
-    voice: ttsVoices[0].id,
-  },
+  botType: 'salesBot', // or 'customerCareBot', etc.
+  clientInfo: {
+    name: "Michael",
+    company: "Surge Management",
+    employees: 16,
+    businessType: "Consultancy",
+    location: "Whanganui, New Zealand"
+  }
 };

@@ -117,9 +117,9 @@ export default function App() {
   return (
     <Card.Card shadow className="animate-appear max-w-lg mb-14">
       <Card.CardHeader>
-        <Card.CardTitle>Configuration</Card.CardTitle>
+        <Card.CardTitle>Necta</Card.CardTitle>
         <Card.CardDescription>
-          Please configure your devices and pipeline settings below
+        Settings for Necta Bots are automated, when ready click start.
         </Card.CardDescription>
       </Card.CardHeader>
       <Card.CardContent stack>
