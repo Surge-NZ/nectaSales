@@ -82,6 +82,7 @@ export const defaultConfig = {
     name: "Michael",
     company: "Surge Management",
     employees: 16,
+    phone: "+6421777711",
     businessType: "Consultancy",
     location: "Whanganui, New Zealand"
   }
